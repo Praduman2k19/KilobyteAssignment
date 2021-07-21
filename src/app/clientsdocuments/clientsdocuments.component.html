@@ -1,0 +1,106 @@
+<div>
+    <div>
+        <span class="text-bold" style="font-size: 40px; font-weight: 600;">Papergrid</span><br>
+        <span class="" style="font-weight: lighter; font-size: 14px; ">116% Profile completion</span>
+    </div>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" >Documents</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" >Tasks</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" >Payments</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" >Profile</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Year</option>
+                        <option value="1">2018-19</option>
+                        <option value="2">2019-20</option>
+                        <option value="3">2020-21</option>
+                      </select>
+                      <select class="form-select mx-3" aria-label="Default select example">
+                        <option selected>Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                      </select>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </div>
+
+    <div class="vertical-list ">
+        <ul class="pt-5 ">
+            <li class="my-1">
+              <a class="" >ALL</a>
+            </li>
+            <li class="my-1">
+              <a class="" >GST</a>
+            </li>
+            <li class="my-1">
+              <a class="" >TDS</a>
+            </li>
+            <li class="my-1">
+              <a class="" >TCS</a>
+            </li>
+            <li class="my-1">
+              <a class="" >ESI PF</a>
+            </li>
+            <li class="my-1">
+              <a class="" >ADVANCE TAX</a>
+            </li>
+            <li class="my-1">
+              <a class="" >INCOME TAX</a>
+            </li>
+        </ul>
+    </div>
+    
+     <div class=" row" style="margin-left:150px;padding:1px 16px; ">
+      <div class="mt-3">
+        <h5>February</h5>
+      </div>
+      <div>
+        <div *ngIf="documents!=undefined && documents.records!=null" class="row row-cols-1 row-cols-md-5 g-4">
+          <div  *ngFor="let document of documents.records">
+            <div class="col">
+              <div class="card h-100">
+                <img src="../../assets/image1.png" class="card-img-top" alt="...">
+                <div class="row p-1">
+                  <div class="w-50 ">
+                    <p class="card-title col " style="height: 60px; overflow: hidden; font-size: 14px; font-weight: bold; line-height: 14px;">{{document.docType}}</p>
+                    <span class="" style="font-size: 9px;"> {{document.type}}</span>
+                  </div>
+                  <form class="col w-50" action="#">
+                    <div class="file-field overflow-hidden ">
+                      <div class="  ">
+                        <input class="btn btn-primary p-2 m-2" type="file" placeholder="hgfd">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+  </div> 
+</div>
+
+
+
+

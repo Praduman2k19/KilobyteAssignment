@@ -1,0 +1,35 @@
+<div>
+    <div>
+        <ul class="text-center bg-primary">
+            <li class="my-5 ">
+                    <h2>HMA</h2>
+            </li>
+            <li class="my-4">
+                <a class=""  [routerLink]="['/home/dashboard']"><i class="fa fa-columns"></i> <br> Dashboard</a>
+            </li>
+            <li class="my-4">
+                <a [routerLink]="['/home/clients']"><i class="fa fa-user-circle"></i><br>Clients</a>
+            </li>
+            <li class="my-4">
+                <a [routerLink]="['/home/documents']"><i class="fa fa-file"></i><br>Documents</a>
+            </li>
+            <li class="my-4">
+                <a [routerLink]="['/home/tasks']"><i class="fa fa-tasks"></i><br>Tasks</a>
+            </li>
+            <li class="my-4">
+                <a [routerLink]="['/home/payments']"><i class="fa fa-credit-card "></i><br>Payments</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class=" " style="margin-left:130px;padding:1px 16px;  ">
+
+        <!-- <app-dashboard></app-dashboard> -->
+        <!-- <app-clients></app-clients>  -->
+        <router-outlet></router-outlet>
+
+
+
+
+    </div>
+</div>

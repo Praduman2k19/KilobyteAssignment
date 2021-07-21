@@ -1,0 +1,37 @@
+<div class="bg-secondary1 p-5 home-bg">
+    <div class="text-primary ">
+        <h3>HMA</h3>
+    </div>
+
+    <div>
+        <div class="container pt-5">
+            <div class="row bg-light col-sm-4 offset-sm-1 p-3 mt-5">
+                <div class="">
+                    <div class="title mb-5"><h2>Welcome Back!</h2></div>
+                    <form >
+                        <div class="mb-3">
+                            <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Email id" >
+                        </div>
+                        <div class="mb-3">
+                          <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="mb-3 d-flex flex-row-reverse">
+                            <a class="text-decoration-none" href="">Forget Password?</a> 
+                        </div >
+                        <div class="alert alert-danger" *ngIf="emailpasstrue!='false'">
+                            {{emailpasstrue}}
+                        </div>
+                        <div *ngIf="loggedIn" class="text-center" [routerLink]="['/home/clients']" routerLinkActive="router-link-active" >
+                            <button (click)="validateLogin()"  class="btn btn-primary">Login</button>
+                        </div>
+                        <div *ngIf="!loggedIn" class="text-center">
+                            <button (click)="validateLogin()"  class="btn btn-primary">Login</button>
+                        </div>
+                        
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,6 @@
+table tr .link-primary{
+    cursor: pointer;
+}
+table tr .link-primary:hover{
+    color: rgb(41, 6, 238);
+}

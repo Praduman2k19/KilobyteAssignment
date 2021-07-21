@@ -1,0 +1,96 @@
+<div class="row ">
+    <h3 class="m-3 col">Clients</h3>
+    <div class="m-3 col d-flex flex-row-reverse">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          +Add Client
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-primary" id="exampleModalLabel">Add Client</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <input class="form-control my-2" type="text" placeholder="Client Id">
+                <input class="form-control my-2" type="text" placeholder="Company name">
+                <input class="form-control my-2" type="text" placeholder="Creation date">
+                <input class="form-control my-2" type="text" placeholder="Assigned member">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">ADD</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <button type="submit" class="btn btn-primary">+Add Client</button> -->
+        <input type="search" class="form-control w-50 mx-2" placeholder="Search using client name or id.">
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">All</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+              <select class="form-select mx-3" aria-label="Default select example">
+                <option selected>All</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+              </select>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" >Client Id</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Creation date</th>
+            <th scope="col">Assigned member</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let client of allClient.records">
+            <td class="link-primary mx-5" *ngIf="client!=undefined " (click)="getDocument(client._id)"  >{{client.clientID}}</td>
+            <td class="link-primary mx-5" *ngIf="client!=undefined" (click)="getDocument(client._id)">{{client.companyName}}</td>
+            <td *ngIf="client!=undefined">{{client.createdAt|date:'dd-MM-yyyy'}}</td>
+            <td *ngIf="client.assignedMembers[0]!=undefined" >
+              <tr *ngFor="let member of client.assignedMembers">
+                <td >
+                  {{member.name}}
+                </td>
+              </tr>
+            </td>
+            <td *ngIf="client.assignedMembers[0]==undefined">{{" "}}</td> 
+            <td ><i class="fa fa-user"></i></td>
+          </tr>
+         
+        </tbody>
+</table>
+<!-- {{allClient.records}} -->
+<!-- <div *ngIf="allClient!=undefined">
+{{allClient.records[1].clientID}}
+{{allClient.records[1].companyName}}
+{{allClient.records[1].createdAt}}
+{{allClient.records[1].assignedMembers[0].name}}
+</div> -->
+<!-- <ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="allClient.records.length"></ngb-pagination> -->
