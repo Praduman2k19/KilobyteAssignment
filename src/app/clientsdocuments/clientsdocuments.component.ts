@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClientDocumentService } from './client-document.service';
 @Component({
   selector: 'app-clientsdocuments',
@@ -8,7 +8,7 @@ import { ClientDocumentService } from './client-document.service';
 })
 export class ClientsdocumentsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private clientsDocumentService:ClientDocumentService) { }
+  constructor(private route: ActivatedRoute,private clientsDocumentService:ClientDocumentService,private router:Router) { }
   clientid:any
   documents:any
   ngOnInit(): void {
@@ -28,6 +28,8 @@ export class ClientsdocumentsComponent implements OnInit {
     this.clientsDocumentService.getdocument(this.clientid).subscribe((res)=>{
       this.documents=res;
       console.log(res)
-    },(err)=>{})
+    },(err)=>{
+      this.router.navigate(['/']);
+    })
   }
 }
