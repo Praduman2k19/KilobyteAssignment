@@ -10,14 +10,16 @@ export class ClientsdocumentsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,private clientsDocumentService:ClientDocumentService,private router:Router) { }
   clientid:any
-  documents:any
+  documents:any="";
+  companyName:any
   ngOnInit(): void {
 
     this.route.queryParams
       .subscribe(params => {
-        console.log(params);
+        // console.log(params);
         this.clientid = params.clientid;
-        console.log(this.clientid); 
+        console.log(this.clientid);
+
       }
     );
     this.getdocument()
@@ -25,9 +27,12 @@ export class ClientsdocumentsComponent implements OnInit {
   
   getdocument()
   {
-    this.clientsDocumentService.getdocument(this.clientid).subscribe((res)=>{
+    this.clientsDocumentService.getdocument(this.clientid,this.companyName).subscribe((res)=>{
       this.documents=res;
+      this.companyName=this.documents.records[0].client.companyName;
+      // console.log(this.companyName);
       console.log(res)
+
     },(err)=>{
       this.router.navigate(['/']);
     })

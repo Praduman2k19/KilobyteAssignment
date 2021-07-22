@@ -8,10 +8,14 @@ export class ClientDocumentService {
 
   constructor(private http: HttpClient) { }
  token:any=null
-  getdocument(clientid:any)
+ clintobj:any;
+  getdocument(clientid:any,companyname:any)
   {
     let paramsobj = new HttpParams();
+    
     paramsobj = paramsobj.append('clientId', clientid)
+    // this.clintobj= paramsobj.append('companyName', companyname)
+    // console.log(this.clintobj);
     paramsobj=paramsobj.append('financ ialYear',"2020-2021")
     this.token=localStorage.getItem("AuthToken")
     
