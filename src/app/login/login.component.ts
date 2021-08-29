@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
          
         this.loggedIn=true;
         localStorage.setItem("AuthToken",res.token)
+        // localStorage.setItem("key","value")
         //local Storage should be clear after logout.
         console.log(localStorage.getItem("AuthToken"))
         console.log(res)
